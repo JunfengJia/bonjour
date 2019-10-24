@@ -346,6 +346,8 @@ func (s *Server) handleQuestion(q dns.Question, resp *dns.Msg) error {
 		s.composeBrowsingAnswers(resp, s.ttl)
 	case s.service.ServiceInstanceName():
 		s.composeLookupAnswers(resp, s.ttl)
+	case s.service.HostName:
+		s.composeLookupAnswers(resp, s.ttl)
 	case s.service.ServiceTypeName():
 		s.serviceTypeName(resp, s.ttl)
 	}
